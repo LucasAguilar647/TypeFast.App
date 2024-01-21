@@ -1,26 +1,44 @@
-
 :root{
-    background-color: black;
+    background-color: #303952;
+ 
 }
 
 
-.recuadro{
-    background-color: grey;
-    display: block;
-    text-align: center;    
-}
+.recuadro {
+    background-color: #596275;
+    border-radius: 20px;
+    text-align: center;
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
 
 .recuadro-juego{
-    width: px;
-    height: 250px;
-    border: 2px solid;
-    border-color: blue;
+    width: 700px;
+    height: 350px;
     margin: auto;
+    border: solid;
+    border-color: #574b90;
 }
 
 .input-juego{
-    margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
+    border-radius: 20px;
+    width: 350px;
+    height: 30px;
 }
 
+h1{
+    font-family: 'Courier New', Courier, monospace;
+   
+}
+
+h3{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: right;
+    padding-right: 40px;
+}

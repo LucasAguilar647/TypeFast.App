@@ -32,12 +32,14 @@ const App = () => {
   return (
     <div className="recuadro">
       <h1>TypeFast</h1>
-      <h2>Points: {points} </h2>
+      <h3>Vidas: 0</h3>
+      <hr />
 
       <div className="recuadro-juego">
       <Word onWordChange={handleWordChange} points={points} /> 
       </div>
-
+      <hr />
+        <h3>Points: {points} </h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -46,7 +48,7 @@ const App = () => {
           autoComplete="off"
           value={inputValue}
           onChange={handleChange}
-        />
+          />
       </form>
     </div>
   );
