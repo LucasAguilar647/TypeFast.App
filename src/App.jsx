@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./index.css";
 import { Word } from "./components/word";
+import { PantallaPerdiste } from "./components/PantallaPerdiste";
 
 const App = () => {
 
   const [points, setPoints] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [currentWord, setCurrentWord] = useState("");
+  const [vidas, setVidas] = useState(5)
 
   const handleWordChange = (newWord) => {
     setCurrentWord(newWord);
@@ -24,6 +26,7 @@ const App = () => {
       setInputValue('');
     }else{
       setPoints(points - 1)
+      setVidas(vidas -1 )
       setInputValue('');
     }
   }
@@ -32,11 +35,20 @@ const App = () => {
   return (
     <div className="recuadro">
       <h1>TypeFast</h1>
-      <h3>Vidas: 0</h3>
+      <h3>Vidas: {vidas} </h3>
       <hr />
 
       <div className="recuadro-juego">
-      <Word onWordChange={handleWordChange} points={points} /> 
+
+        {
+          vidas>0 ?
+          <Word onWordChange={handleWordChange} points={points} /> 
+          :
+          <PantallaPerdiste points={points} />
+        }
+
+
+
       </div>
       <hr />
         <h3>Points: {points} </h3>
