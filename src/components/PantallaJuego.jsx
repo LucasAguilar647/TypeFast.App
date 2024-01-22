@@ -1,6 +1,6 @@
 import React from "react";
 import { Word } from "./word";
-import './juego.css'
+import "./juego.css";
 
 export const PantallaJuego = ({
   vidas,

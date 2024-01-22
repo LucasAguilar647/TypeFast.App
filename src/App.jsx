@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./index.css";
-import { Word } from "./components/word";
 import { PantallaPerdiste } from "./components/PantallaPerdiste";
 import { PantallaJuego } from "./components/PantallaJuego";
+import "./index.css";
 
 const App = () => {
   const [points, setPoints] = useState(0);
@@ -42,7 +41,11 @@ const App = () => {
           inputValue={inputValue}
         />
       ) : (
-        <PantallaPerdiste points={points}  setVidas={setVidas} setPoints={setPoints} />
+        <PantallaPerdiste
+          points={points}
+          setVidas={setVidas}
+          setPoints={setPoints}
+        />
       )}
     </div>
   );
