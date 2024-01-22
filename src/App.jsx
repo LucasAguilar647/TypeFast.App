@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { PantallaPerdiste } from "./components/PantallaPerdiste";
 import { PantallaJuego } from "./components/PantallaJuego";
-import "./index.css";
+import { PantallaInicio } from "./components/PantallaInicio";
+import "./css/index.css";
 
 const App = () => {
   const [points, setPoints] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [currentWord, setCurrentWord] = useState("");
-  const [vidas, setVidas] = useState(3);
+  const [vidas, setVidas] = useState(0);
+  const [showGame, setShowGame] = useState(false);
 
   const handleWordChange = (newWord) => {
     setCurrentWord(newWord);
@@ -29,25 +31,34 @@ const App = () => {
     }
   };
 
+  const handleInicioDeJuego = () => {
+    setShowGame(true);
+    setVidas(3);
+  };
+
   return (
     <div className="recuadro">
-      {vidas > 0 ? (
-        <PantallaJuego
-          vidas={vidas}
-          handleWordChange={handleWordChange}
-          points={points}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          inputValue={inputValue}
-          setVidas={setVidas}
-          setPoints={setPoints}
-        />
+      {showGame ? (
+        vidas > 0 ? (
+          <PantallaJuego
+            vidas={vidas}
+            handleWordChange={handleWordChange}
+            points={points}
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+            inputValue={inputValue}
+            setVidas={setVidas}
+            setPoints={setPoints}
+          />
+        ) : (
+          <PantallaPerdiste
+            points={points}
+            setVidas={setVidas}
+            setPoints={setPoints}
+          />
+        )
       ) : (
-        <PantallaPerdiste
-          points={points}
-          setVidas={setVidas}
-          setPoints={setPoints}
-        />
+        <PantallaInicio handleInicioDeJuego={handleInicioDeJuego} />
       )}
     </div>
   );

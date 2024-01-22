@@ -1,0 +1,33 @@
+
+.pantalla-inicio {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    
+  }
+  
+  .pantalla-inicio h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+  }
+  
+
+
+  button {
+    border-radius: 5px;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #778beb;
+    border: 1px solid #000000;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #546de5;
+    color: white;
+  }
+  
+ 
+  
+  

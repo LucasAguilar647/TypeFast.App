@@ -1,5 +1,5 @@
 import React from "react";
-import "./perdiste.css";
+import "../css/perdiste.css";
 
 export const PantallaPerdiste = ({ points, setVidas, setPoints }) => {
   const handleNuevoJuego = () => {
