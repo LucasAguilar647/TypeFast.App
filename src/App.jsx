@@ -39,6 +39,8 @@ const App = () => {
           handleSubmit={handleSubmit}
           handleChange={handleChange}
           inputValue={inputValue}
+          setVidas={setVidas}
+          setPoints={setPoints}
         />
       ) : (
         <PantallaPerdiste

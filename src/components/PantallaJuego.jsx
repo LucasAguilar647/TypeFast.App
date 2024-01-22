@@ -4,11 +4,13 @@ import "./juego.css";
 
 export const PantallaJuego = ({
   vidas,
+  setVidas,
   handleWordChange,
   points,
   handleSubmit,
   handleChange,
   inputValue,
+  setPoints,
 }) => {
   return (
     <>
@@ -16,7 +18,7 @@ export const PantallaJuego = ({
       <h3>Vidas: {vidas} </h3>
       <hr />
       <div className="recuadro-juego">
-        <Word onWordChange={handleWordChange} points={points} />
+        <Word onWordChange={handleWordChange} points={points} setVidas={setVidas} vidas={vidas} setPoints={setPoints} />
       </div>
       <hr />
       <h3>Points: {points} </h3>
