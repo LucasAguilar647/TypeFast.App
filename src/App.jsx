@@ -8,7 +8,7 @@ const App = () => {
   const [points, setPoints] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [currentWord, setCurrentWord] = useState("");
-  const [vidas, setVidas] = useState(1);
+  const [vidas, setVidas] = useState(3);
 
   const handleWordChange = (newWord) => {
     setCurrentWord(newWord);
@@ -42,7 +42,7 @@ const App = () => {
           inputValue={inputValue}
         />
       ) : (
-        <PantallaPerdiste points={points} />
+        <PantallaPerdiste points={points}  setVidas={setVidas} setPoints={setPoints} />
       )}
     </div>
   );
