@@ -7,17 +7,18 @@ export const Word = ({ onWordChange, points, setVidas, vidas, setPoints }) => {
     palabrasEnEspanol[Math.floor(Math.random() * palabrasEnEspanol.length)];
 
   const [randomWordState, setRandomWordState] = useState(() => getRandomWord());
-
-  const wordRef = useRef(null);
   const [positionY, setPositionY] = useState(0);
-  const [startPosition, setStartPosition] = useState(null);
-  //const deadLine = 2100;
-  const deadLine = 550;
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const wordRef = useRef(null);
 
+  const deadLine = 550; 
 
   useEffect(() => {
     setRandomWordState(getRandomWord());
-    setStartPosition(wordRef.current.getBoundingClientRect().y);
+    setPositionY(0);
+    setElapsedTime(0);
+    setIsVisible(true);
   }, [points]);
 
   useEffect(() => {
@@ -26,7 +27,8 @@ export const Word = ({ onWordChange, points, setVidas, vidas, setPoints }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setPositionY((positionY) => positionY + 1);
+      setPositionY((position) => position + 1);
+      setElapsedTime((time) => time + 1);
       checkPosition();
     }, 1);
 
@@ -38,26 +40,25 @@ export const Word = ({ onWordChange, points, setVidas, vidas, setPoints }) => {
     const rect = wordElement.getBoundingClientRect();
 
     if (rect.y > deadLine) {
-      setPoints((points) => points - 1);
-      setVidas((vidas) => vidas - 1);
-      setPositionY(0);
-      changeWord();
-      console.log('************************************************************************');
+      handleWordExpiration();
     }
   };
 
-  const changeWord = () => {
-    setRandomWordState(getRandomWord());
-    setStartPosition(wordRef.current.getBoundingClientRect().y);
+  const handleWordExpiration = () => {
+    setPoints((prevPoints) => prevPoints - 1);
+    setVidas((prevVidas) => prevVidas - 1);
+    setPositionY(0);
+    setElapsedTime(0);
+    setIsVisible(false);
   };
 
   const style = {
     transform: `translateY(${positionY}px)`,
   };
 
-  return (
+  return isVisible && vidas > 0 ? ( 
     <p ref={wordRef} style={style}>
       {randomWordState}
     </p>
-  );
+  ) : null;
 };
