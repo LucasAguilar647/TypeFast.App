@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Word } from "./word";
 import "../css/juego.css";
 
@@ -12,6 +12,15 @@ export const PantallaJuego = ({
   inputValue,
   setPoints,
 }) => {
+
+  const inputRef = useRef(null);
+  
+  useEffect(() => {
+    if (vidas > 0) {
+      inputRef.current.focus();
+    }
+  }, [vidas]);
+
   return (
     <>
       <h1>TypeFast</h1>
@@ -25,6 +34,7 @@ export const PantallaJuego = ({
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          ref={inputRef}
           className="input-juego"
           placeholder="Type Here"
           autoComplete="off"
