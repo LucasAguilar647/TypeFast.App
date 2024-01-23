@@ -21,7 +21,7 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue === currentWord) {
+    if (inputValue.toUpperCase() === currentWord) {
       setPoints(points + 1);
       setInputValue("");
     } else {

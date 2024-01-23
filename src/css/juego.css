@@ -1,41 +1,4 @@
-/*.recuadro {
-    background-color: #596275;
-    border-radius: 20px;
-    text-align: center;
-    width: 70%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
 
-.recuadro-juego{
-    width: 700px;
-    height: 350px;
-    margin: auto;
-    border: solid;
-    border-color: #574b90;
-}
-
-.input-juego{
-    margin-bottom: 50px;
-    text-align: center;
-    border-radius: 20px;
-    width: 350px;
-    height: 30px;
-}
-
-h1{
-    font-family: 'Courier New', Courier, monospace;
-   
-}
-
-h3{
-    font-family: 'Courier New', Courier, monospace;
-    text-align: right;
-    padding-right: 40px;
-}*/
 .recuadro {
     background-color: #596275;
     border-radius: 20px;
@@ -49,27 +12,41 @@ h3{
 
 .recuadro-juego {
     width: 90%;
-    max-width: 900px; 
-    height: 450px; 
+    max-width: 600px;
+    height: 350px;
     margin: auto;
-    border: solid;
-    border-color: #574b90;
+    background-color: #786fa6;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .input-juego {
-    margin-bottom: 5%; 
     text-align: center;
+    border: 1px solid #ccc; 
     border-radius: 20px;
-    width: 70%; 
-    max-width: 350px; 
-    height: 30px;
+    width: 70%;
+    max-width: 350px;
+    height: 40px; 
+    font-size: 20px; 
+    padding: 0 15px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 h3 {
     font-family: 'Courier New', Courier, monospace;
     text-align: right;
-    padding-right: 5%; 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+    padding-right: 5%;
+    color: #000000; 
+    font-size: 18px;
 }
+
 
 
 
