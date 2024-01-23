@@ -24,7 +24,9 @@ const App = () => {
     if (inputValue.toUpperCase() === currentWord) {
       setPoints(points + 1);
       setInputValue("");
+      plusDeVidas();
     } else {
+      plusDeVidas()
       setPoints(points - 1);
       setVidas(vidas - 1);
       setInputValue("");
@@ -35,6 +37,14 @@ const App = () => {
     setShowGame(true);
     setVidas(3);
   };
+
+
+  const plusDeVidas = () =>{
+    if (vidas < 3 && points === 9){
+      setPoints(points - 9);
+      setVidas(vidas + 1);
+    }
+  }
 
   return (
     <div className="recuadro">
