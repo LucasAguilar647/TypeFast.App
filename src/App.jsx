@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PantallaPerdiste } from "./components/PantallaPerdiste";
 import { PantallaJuego } from "./components/PantallaJuego";
 import { PantallaInicio } from "./components/PantallaInicio";
+import { sonidoCorrecto } from '../src/assets/CorrectoTypeFast.mp3'
 import "./css/index.css";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.toUpperCase() === currentWord) {
+      sonidoCorrecto()
       setPoints(points + 1);
       setInputValue("");
       plusDeVidas();
