@@ -4,7 +4,8 @@ import { PantallaJuego } from "./components/PantallaJuego";
 import { PantallaInicio } from "./components/PantallaInicio";
 
 import useSound from 'use-sound';
-import sonido from './assets/CorrectTypeFast.mp3';
+import correctSound from './assets/CorrectTypeFast.mp3';
+import incorrectSound from './assets/IncorrectTypeFast.mp3';
 import "./css/index.css";
 
 const App = () => {
@@ -13,8 +14,8 @@ const App = () => {
   const [currentWord, setCurrentWord] = useState("");
   const [vidas, setVidas] = useState(0);
   const [showGame, setShowGame] = useState(false);
-
-  const [playCorrect] = useSound(sonido);
+  const [playCorrect] = useSound(correctSound);
+  const [playIncorrect] = useSound(incorrectSound);
 
   const handleWordChange = (newWord) => {
     setCurrentWord(newWord);
@@ -32,6 +33,7 @@ const App = () => {
       setInputValue("");
       plusDeVidas();
     } else {
+      playIncorrect()
       plusDeVidas();
       setPoints(points - 1);
       setVidas(vidas - 1);
