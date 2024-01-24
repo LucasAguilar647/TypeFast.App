@@ -37,7 +37,7 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-h3 {
+.h3-puntos {
     font-family: 'Courier New', Courier, monospace;
     text-align: right;
     margin-top: 10px; 
@@ -45,6 +45,17 @@ h3 {
     padding-right: 5%;
     color: #000000; 
     font-size: 18px;
+}
+
+.timer{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+    padding-left: 5%;
+    color: #000000; 
+    font-size: 18px;
+    
 }
 
 
