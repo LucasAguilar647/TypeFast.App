@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { PantallaPerdiste } from "./components/PantallaPerdiste";
 import { PantallaJuego } from "./components/PantallaJuego";
 import { PantallaInicio } from "./components/PantallaInicio";
-import { sonidoCorrecto } from '../src/assets/CorrectoTypeFast.mp3'
+
+import useSound from 'use-sound';
+import sonido from './assets/CorrectTypeFast.mp3';
 import "./css/index.css";
 
 const App = () => {
@@ -11,6 +13,8 @@ const App = () => {
   const [currentWord, setCurrentWord] = useState("");
   const [vidas, setVidas] = useState(0);
   const [showGame, setShowGame] = useState(false);
+
+  const [playCorrect] = useSound(sonido);
 
   const handleWordChange = (newWord) => {
     setCurrentWord(newWord);
@@ -23,12 +27,12 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.toUpperCase() === currentWord) {
-      sonidoCorrecto()
+      playCorrect(); 
       setPoints(points + 1);
       setInputValue("");
       plusDeVidas();
     } else {
-      plusDeVidas()
+      plusDeVidas();
       setPoints(points - 1);
       setVidas(vidas - 1);
       setInputValue("");
@@ -40,13 +44,12 @@ const App = () => {
     setVidas(3);
   };
 
-
-  const plusDeVidas = () =>{
-    if (vidas < 3 && points === 9){
+  const plusDeVidas = () => {
+    if (vidas < 3 && points >= 9) {
       setPoints(points - 9);
       setVidas(vidas + 1);
     }
-  }
+  };
 
   return (
     <div className="recuadro">
