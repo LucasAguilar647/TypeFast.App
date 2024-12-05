@@ -18,7 +18,7 @@ export const PantallaJuego = ({
  
   return (
     <>
-      <h1>Type Fast App</h1>
+      <h1>¡Type Fast App!</h1>
       <h3 className="timer"><Timer setTiempo={setTiempo} /></h3>
       <hr />
       <div className="recuadro-juego">
