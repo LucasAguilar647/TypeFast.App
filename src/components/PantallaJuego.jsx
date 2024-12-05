@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Word } from "./word";
+import { Word } from "./Word";
 import Timer from "./Timer";
 import "../css/juego.css";
 
